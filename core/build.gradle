@@ -1,0 +1,45 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion config_version['compileSdkVersion']
+
+    defaultConfig {
+        minSdkVersion config_version['minSdkVersion']
+        targetSdkVersion config_version['targetSdkVersion']
+        versionCode config_version['versionCode']
+        versionName config_version['versionName']
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api "com.github.bumptech.glide:glide:${lib_version['glide']}"
+    kapt "com.github.bumptech.glide:compiler:${lib_version['glide']}"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${lib_version['kotlin']}"
+    api "com.android.support:appcompat-v7:${lib_version['support']}"
+    api "com.squareup.retrofit2:retrofit:${lib_version['retrofit']}"
+    api "com.squareup.retrofit2:adapter-rxjava2:${lib_version['adapter_rxjava2']}"
+    api "com.squareup.retrofit2:converter-gson:${lib_version['converter_gson']}"
+    api "io.reactivex.rxjava2:rxkotlin:${lib_version['rxkotlin']}"
+    api "io.reactivex.rxjava2:rxandroid:${lib_version['rxandroid']}"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

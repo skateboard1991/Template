@@ -1,0 +1,34 @@
+ext.lib_version = [:]
+def kotlin = '1.2.60'
+lib_version['kotlin'] = kotlin
+def support = '28.0.0-rc01'
+lib_version['support'] = support
+def retrofit = '2.4.0'
+lib_version['retrofit'] = retrofit
+def glide = '4.8.0'
+lib_version['glide'] = glide
+def constraint_layout = '1.1.2'
+lib_version['constraint_layout'] = constraint_layout
+def adapter_rxjava2 = '2.4.0'
+lib_version['adapter_rxjava2'] = adapter_rxjava2
+def converter_gson = '2.4.0'
+lib_version['converter_gson'] = converter_gson
+def rxkotlin='2.3.0'
+lib_version['rxkotlin']=rxkotlin
+def rxandroid='2.1.0'
+lib_version['rxandroid']=rxandroid
+
+ext.config_version = [:]
+def compileSdkVersion = 28
+config_version['compileSdkVersion'] = compileSdkVersion
+def minSdkVersion = 15
+config_version['minSdkVersion'] = minSdkVersion
+def targetSdkVersion = 28
+config_version['targetSdkVersion'] = targetSdkVersion
+def versionCode = 1
+config_version['versionCode'] = versionCode
+def versionName = "1.0"
+config_version['versionName'] = versionName
+
+
+
