@@ -3,6 +3,8 @@ package com.skateboard.template
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.skateboard.core.network.Api
+import com.skateboard.core.service.ServiceFactory
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity()
 {
@@ -11,6 +13,7 @@ class MainActivity : AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Api.test()
+        moduleATV.text = ServiceFactory.moduleAService?.getModuleAName()
+        moduleBTV.text = ServiceFactory.moduleBService?.getModuleBName()
     }
 }

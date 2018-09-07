@@ -24,7 +24,8 @@ android {
 }
 
 dependencies {
-//    runtimeOnly project(':modulea')
+    runtimeOnly project(':moduleb')
+    runtimeOnly project(':modulea')
     implementation project(':core')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support.constraint:constraint-layout:${lib_version['constraint_layout']}"
