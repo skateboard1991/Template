@@ -17,6 +17,10 @@ def rxkotlin='2.3.0'
 lib_version['rxkotlin']=rxkotlin
 def rxandroid='2.1.0'
 lib_version['rxandroid']=rxandroid
+def arouter_api='1.4.0'
+lib_version['arouter_api']=arouter_api
+def arouter_compiler='1.2.1'
+lib_version['arouter_compiler']=arouter_compiler
 
 ext.config_version = [:]
 def compileSdkVersion = 28

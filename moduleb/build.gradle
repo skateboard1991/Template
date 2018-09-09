@@ -8,6 +8,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion config_version['compileSdkVersion']
 
@@ -30,21 +32,30 @@ android {
     }
 
     sourceSets {
-        if(isRunAlone.toBoolean()) {
+        if (isRunAlone.toBoolean()) {
             main {
                 manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
             }
-        }
-        else {
+        } else {
             main {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             }
         }
     }
+
+
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.alibaba:arouter-api:${lib_version['arouter_api']}"
+    kapt "com.alibaba:arouter-compiler:${lib_version['arouter_compiler']}"
     implementation project(':core')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
