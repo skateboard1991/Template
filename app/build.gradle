@@ -33,10 +33,9 @@ android {
 dependencies {
     runtimeOnly project(':moduleb')
     runtimeOnly project(':modulea')
-    runtimeOnly project(':scanner')
     implementation project(':core')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
+    testImplementation "junit:junit:${lib_version['junit']}"
     androidTestImplementation "com.android.support.test:runner:${lib_version['runner']}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${lib_version['espresso-core']}"
     implementation "com.alibaba:arouter-api:${lib_version['arouter_api']}"
