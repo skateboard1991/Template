@@ -33,12 +33,12 @@ android {
 dependencies {
     runtimeOnly project(':moduleb')
     runtimeOnly project(':modulea')
+    runtimeOnly project(':scanner')
     implementation project(':core')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support.constraint:constraint-layout:${lib_version['constraint_layout']}"
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation "com.android.support.test:runner:${lib_version['runner']}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${lib_version['espresso-core']}"
     implementation "com.alibaba:arouter-api:${lib_version['arouter_api']}"
     kapt "com.alibaba:arouter-compiler:${lib_version['arouter_compiler']}"
 }

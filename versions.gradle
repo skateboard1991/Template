@@ -13,6 +13,7 @@ lib_version['arouter_compiler']='1.2.1'
 lib_version['event_bus']='3.1.1'
 lib_version['runner']='1.0.2'
 lib_version['espresso-core']='3.0.2'
+lib_version['junit']='4.12'
 
 ext.config_version = [:]
 config_version['compileSdkVersion'] = 28
