@@ -1,27 +1,85 @@
-ext.lib_version = [:]
-lib_version['kotlin'] = '1.2.60'
-lib_version['support'] = '28.0.0-rc01'
-lib_version['retrofit'] = '2.4.0'
-lib_version['glide'] = '4.8.0'
-lib_version['constraint_layout'] = '1.1.3'
-lib_version['adapter_rxjava2'] = '2.4.0'
-lib_version['converter_gson'] = '2.4.0'
-lib_version['rxkotlin']='2.3.0'
-lib_version['rxandroid']='2.1.0'
-lib_version['arouter_api']='1.4.0'
-lib_version['arouter_compiler']='1.2.1'
-lib_version['event_bus']='3.1.1'
-lib_version['runner']='1.0.2'
-lib_version['espresso-core']='3.0.2'
-lib_version['junit']='4.12'
+ext.deps = [:]
+def version = [:]
 
-ext.config_version = [:]
-config_version['compileSdkVersion'] = 28
-config_version['minSdkVersion'] = 15
-config_version['targetSdkVersion'] = 28
-config_version['versionCode'] = 1
-config_version['versionName'] = "1.0"
-config_version['gradle']='3.2.1'
+version.glide = '4.8.0'
+//Kotlin
+version.kotlin = '1.2.60'
+
+//Support
+version.support = '28.0.0'
+version.constraint_layout = '1.1.3'
+
+//Retrofit
+version.retrofit = '2.4.0'
+version.adapter_rxjava2 = '2.4.0'
+version.converter_gson = '2.4.0'
+
+//RxJava
+version.rxkotlin = '2.3.0'
+version.rxandroid = '2.1.0'
+//ARouter
+version.arouter_api = '1.4.0'
+version.arouter_compiler = '1.2.1'
+//EventBus
+version.event_bus = '3.1.1'
+//Test
+version.runner = '1.0.2'
+version.espresso_core = '3.0.2'
+version.junit = '4.12'
+//Config
+version.compileSdkVersion = 28
+version.minSdkVersion = 15
+version.targetSdkVersion = 28
+version.versionCode = 1
+version.versionName = "1.0"
+version.gradle = '3.2.1'
+ext.deps.version=version
+
+
+def arouter=[:]
+arouter.api="com.alibaba:arouter-api:$version.arouter_api"
+arouter.arouter_compiler="com.alibaba:arouter-compiler:$version.arouter_compiler"
+ext.deps.arouter=arouter
+
+def gradle=[:]
+gradle.build="com.android.tools.build:gradle:$version.gradle"
+gradle.kotlin_gradle_plugin="org.jetbrains.kotlin:kotlin-gradle-plugin:$version.kotlin"
+ext.deps.gradle=gradle
+
+def glide = [:]
+glide.runtime = "com.github.bumptech.glide:glide:$version.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$version.glide"
+ext.deps.glide=glide
+
+def kotlin = [:]
+kotlin.kotlin_stdlib_jdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version.kotlin"
+ext.deps.kotlin=kotlin
+
+def support = [:]
+support.appcompat = "com.android.support:appcompat-v7:$version.support"
+ext.deps.support=support
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$version.retrofit"
+retrofit.adapter_rxjava2 = "com.squareup.retrofit2:adapter-rxjava2:$version.adapter_rxjava2"
+retrofit.converter_gson = "com.squareup.retrofit2:converter-gson:$version.converter_gson"
+ext.deps.retrofit=retrofit
+
+def rxjava = [:]
+rxjava.rxkotlin = "io.reactivex.rxjava2:rxkotlin:$version.rxkotlin"
+rxjava.rxandroid = "io.reactivex.rxjava2:rxandroid:$version.rxandroid"
+ext.deps.rxjava=rxjava
+
+def test=[:]
+test.junit="junit:junit:$version.junit"
+test.runner="com.android.support.test:runner:$version.runner"
+test.espresso_core="com.android.support.test.espresso:espresso-core:$version.espresso_core"
+ext.deps.test=test
+
+
+
+
+
 
 
 

@@ -14,12 +14,8 @@ abstract class MVPFragment<V : IView, P : IPresenter<V>> : BaseFragment(), IView
     {
         super.onCreate(savedInstanceState)
         mPresenter = loadPresenter()
-        mPresenter?.attach(this as V)
-    }
-
-    override fun onDestroy()
-    {
-        super.onDestroy()
-        mPresenter?.detach()
+        mPresenter?.let {
+            lifecycle.addObserver(it)
+        }
     }
 }

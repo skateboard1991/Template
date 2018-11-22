@@ -17,13 +17,10 @@ abstract class MVPActivity<V : IView, P : IPresenter<V>> : BaseActivity(),IView
     {
         super.onCreate(savedInstanceState)
         mPresenter = loadPresenter()
-        mPresenter?.attach(this as V)
+        mPresenter?.let {
+            lifecycle.addObserver(it)
+        }
         getLayoutId()
     }
 
-    override fun onDestroy()
-    {
-        super.onDestroy()
-        mPresenter?.detach()
-    }
 }

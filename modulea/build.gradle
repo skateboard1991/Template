@@ -11,16 +11,16 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion config_version['compileSdkVersion']
+    compileSdkVersion deps.version.compileSdkVersion
 
     defaultConfig {
         if (isRunAlone.toBoolean()) {
             applicationId "com.skateboard.modulea"
         }
-        minSdkVersion config_version['minSdkVersion']
-        targetSdkVersion config_version['targetSdkVersion']
-        versionCode config_version['versionCode']
-        versionName config_version['versionName']
+        minSdkVersion deps.version.minSdkVersion
+        targetSdkVersion deps.version.targetSdkVersion
+        versionCode deps.version.versionCode
+        versionName deps.version.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -52,9 +52,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':core')
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation "com.android.support.test:runner:${lib_version['runner']}"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:${lib_version['espresso-core']}"
-    implementation "com.alibaba:arouter-api:${lib_version['arouter_api']}"
-    kapt "com.alibaba:arouter-compiler:${lib_version['arouter_compiler']}"
+    kapt deps.arouter.arouter_compiler
 }
