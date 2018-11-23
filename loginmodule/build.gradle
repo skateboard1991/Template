@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         if (isRunAlone.toBoolean()) {
-            applicationId "com.skateboard.modulea"
+            applicationId "com.skateboard.loginmodule"
         }
         minSdkVersion deps.version.minSdkVersion
         targetSdkVersion deps.version.targetSdkVersion
@@ -23,7 +23,6 @@ android {
         versionName deps.version.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false

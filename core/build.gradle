@@ -15,7 +15,7 @@ android {
         versionCode deps.version.versionCode
         versionName deps.version.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -26,6 +26,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -33,7 +38,7 @@ dependencies {
     api deps.glide.runtime
     kapt deps.glide.compiler
     api deps.kotlin.kotlin_stdlib_jdk
-    api deps.support.appcompat
+    api 'androidx.appcompat:appcompat:1.0.2'
     api deps.retrofit.runtime
     api deps.retrofit.adapter_rxjava2
     api deps.retrofit.converter_gson
@@ -43,7 +48,14 @@ dependencies {
 
     api deps.arouter.api
 
+    api deps.lifecycle.extension
+    api deps.lifecycle.runtime
+//    kapt deps.lifecycle.compiler
+    api deps.lifecycle.common
+    api deps.lifecycle.reactivestreams
+    testApi deps.lifecycle.core_test
+
     testImplementation deps.test.junit
-    androidTestImplementation deps.test.runner
-    androidTestImplementation deps.test.espresso_core
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }

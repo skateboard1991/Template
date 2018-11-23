@@ -1,15 +1,21 @@
 package com.skateboard.template
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.alibaba.android.arouter.launcher.ARouter
-import com.skateboard.core.network.Api
-import com.skateboard.core.service.ServiceFactory
+import com.skateboard.core.model.StringModel
+import com.skateboard.core.ui.activity.VMActivity
+import com.skateboard.template.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener
+class MainActivity : VMActivity<MainViewModel>(), View.OnClickListener
 {
+    override fun loadViewModel(): MainViewModel
+    {
+        return ViewModelProviders.of(this).get(MainViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -17,6 +23,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener
         setContentView(R.layout.activity_main)
         moduleABT.setOnClickListener(this)
         moduleBBT.setOnClickListener(this)
+        lifecycle.addObserver(mViewModel)
+
     }
 
     override fun onClick(p0: View?)

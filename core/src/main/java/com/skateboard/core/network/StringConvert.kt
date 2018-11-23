@@ -1,6 +1,5 @@
 package com.skateboard.core.network
 
-import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Converter
 import retrofit2.Retrofit
@@ -18,18 +17,15 @@ class StringConvertFactory : Converter.Factory()
     }
 
 
-    override fun responseBodyConverter(type: Type?, annotations: Array<out Annotation>?, retrofit: Retrofit?): Converter<ResponseBody, *>?
+    override fun responseBodyConverter(type: Type, annotations: Array<out Annotation>, retrofit: Retrofit): Converter<ResponseBody, *>?
     {
-        annotations?.let {
-            for (anno in annotations)
+        for (annotation in annotations)
+        {
+            if (annotation.annotationClass == STRING::class)
             {
-                if (anno.annotationClass == STRING::class)
-                {
-                    return StringConvert()
-                }
+                return StringConvert()
             }
         }
-
         return super.responseBodyConverter(type, annotations, retrofit)
     }
 
