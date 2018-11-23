@@ -40,8 +40,10 @@ dependencies {
 
     api deps.rxjava.rxkotlin
     api deps.rxjava.rxandroid
-    testApi deps.test.junit
+
+    api deps.arouter.api
+
+    testImplementation deps.test.junit
     androidTestImplementation deps.test.runner
     androidTestImplementation deps.test.espresso_core
-    api deps.arouter.api
 }
