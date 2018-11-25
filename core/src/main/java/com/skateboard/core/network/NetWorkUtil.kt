@@ -1,10 +1,6 @@
 package com.skateboard.core.network
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.skateboard.core.model.BaseModel
-import io.reactivex.Observable
-import io.reactivex.functions.Consumer
+
 import okhttp3.Cookie
 import okhttp3.CookieJar
 import okhttp3.HttpUrl
@@ -82,26 +78,29 @@ object NetWorkUtil
         return retrofit
     }
 
-
     fun <T> create(cla: Class<T>): T = retrofit.create(cla)
 
-
-
-    fun <T : BaseModel> transToLiveData(observable: Observable<T>): LiveData<T>
-    {
-        val result = MutableLiveData<T>()
-        observable.compose(CommonTransformer())
-                .subscribe(Consumer<T> {
-                    if (!it.isSuccess())
-                    {
-                        it.errorMessage = "error"
-                    }
-                    result.value = it
-                }, Consumer<Throwable> {
-                    result.value?.errorMessage = it?.message ?: ""
-                })
-        return result
-    }
+//
+//    fun <T> transToLiveData(observable: Observable<Response<T>>): LiveData<Response<T>>
+//    {
+//        val result = MutableLiveData<Response<T>>()
+//        observable.compose(CommonTransformer())
+//                .subscribe(Consumer<Response<T>> {
+//                    if (it.isSuccess())
+//                    {
+//                        result.value = it
+//                    }
+//                    else
+//                    {
+//
+//                    }
+//                }, Consumer<Throwable> {
+//                    val baseModel = Response<T>()
+//                    baseModel.message = it?.message ?: ""
+//                    result.value = baseModel
+//                })
+//        return result
+//    }
 
 
 }

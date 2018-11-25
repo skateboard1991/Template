@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.skateboard.core.service.ServiceFactory
+import com.skateboard.core.service.ServiceLocator
 import kotlinx.android.synthetic.main.activity_modulea.*
 
 @Route(path = "/a/activity")
@@ -33,7 +33,7 @@ class ModuleAActivity : AppCompatActivity(), View.OnClickListener
 
             R.id.getDataButton ->
             {
-                dataTV.text = ServiceFactory.moduleBService?.getModuleBName()?:"empty"
+                dataTV.text = ServiceLocator.moduleBService?.getModuleBName()?:"empty"
             }
         }
 

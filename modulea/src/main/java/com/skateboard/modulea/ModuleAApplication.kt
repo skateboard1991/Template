@@ -2,7 +2,7 @@ package com.skateboard.modulea
 
 import com.alibaba.android.arouter.launcher.ARouter
 import com.skateboard.core.application.BaseApplication
-import com.skateboard.core.service.ServiceFactory
+import com.skateboard.core.service.ServiceLocator
 
 class ModuleAApplication : BaseApplication()
 {
@@ -15,6 +15,6 @@ class ModuleAApplication : BaseApplication()
 
     override fun initModuleApp()
     {
-        ServiceFactory.registerModuleAService(ModuleAServiceImp())
+        ServiceLocator.moduleAService = ModuleAServiceImp()
     }
 }

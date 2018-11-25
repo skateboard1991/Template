@@ -2,10 +2,8 @@ package com.skateboard.template
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.alibaba.android.arouter.launcher.ARouter
-import com.skateboard.core.model.StringModel
 import com.skateboard.core.ui.activity.VMActivity
 import com.skateboard.template.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
