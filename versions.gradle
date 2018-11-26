@@ -1,14 +1,12 @@
 ext.deps = [:]
 def version = [:]
 
-version.lifecycle_version = "2.0.0-rc01"
-
 version.glide = '4.8.0'
 //Kotlin
 version.kotlin = '1.2.60'
 
-//Support
 version.support = '1.0.0'
+version.androidx = '2.0.0-rc01'
 version.constraint_layout = '1.1.3'
 
 //Retrofit
@@ -57,10 +55,20 @@ def kotlin = [:]
 kotlin.kotlin_stdlib_jdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version.kotlin"
 ext.deps.kotlin = kotlin
 
-def support = [:]
-support.appcompat = "androidx.appcompat:appcompat:$version.support"
-support.recyclerview = "androidx.recyclerview:recyclerview:$version.support"
-ext.deps.support = support
+def androidx = [:]
+androidx.appcompat = "androidx.appcompat:appcompat:$version.support"
+androidx.recyclerview = "androidx.recyclerview:recyclerview:$version.support"
+androidx.paging_common = "androidx.paging:paging-common:$version.androidx"
+androidx.paging_runtime = "androidx.paging:paging-runtime:$version.androidx"
+androidx.paging_rxjava2 = "androidx.paging:paging-rxjava2:$version.androidx"
+// ViewModel and LiveData
+androidx.extension = "androidx.lifecycle:lifecycle-extensions:$version.androidx"
+androidx.runtime = "androidx.lifecycle:lifecycle-runtime:$version.androidx"
+androidx.compiler = "androidx.lifecycle:lifecycle-compiler:$version.androidx"
+androidx.common = "androidx.lifecycle:lifecycle-common-java8:$version.androidx"
+androidx.reactivestreams = "androidx.lifecycle:lifecycle-reactivestreams:$version.androidx"
+androidx.core_test = "androidx.arch.core:core-testing:$version.androidx"
+ext.deps.androidx = androidx
 
 def retrofit = [:]
 retrofit.runtime = "com.squareup.retrofit2:retrofit:$version.retrofit"
@@ -72,17 +80,6 @@ def rxjava = [:]
 rxjava.rxkotlin = "io.reactivex.rxjava2:rxkotlin:$version.rxkotlin"
 rxjava.rxandroid = "io.reactivex.rxjava2:rxandroid:$version.rxandroid"
 ext.deps.rxjava = rxjava
-
-
-def lifecycle = [:]
-// ViewModel and LiveData
-lifecycle.extension = "androidx.lifecycle:lifecycle-extensions:$version.lifecycle_version"
-lifecycle.runtime = "androidx.lifecycle:lifecycle-runtime:$version.lifecycle_version"
-lifecycle.compiler = "androidx.lifecycle:lifecycle-compiler:$version.lifecycle_version"
-lifecycle.common = "androidx.lifecycle:lifecycle-common-java8:$version.lifecycle_version"
-lifecycle.reactivestreams = "androidx.lifecycle:lifecycle-reactivestreams:$version.lifecycle_version"
-lifecycle.core_test = "androidx.arch.core:core-testing:$version.lifecycle_version"
-ext.deps.lifecycle = lifecycle
 
 def test = [:]
 test.junit = "junit:junit:$version.junit"

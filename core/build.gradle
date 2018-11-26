@@ -37,8 +37,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api deps.glide.runtime
     kapt deps.glide.compiler
+
     api deps.kotlin.kotlin_stdlib_jdk
-    api 'androidx.appcompat:appcompat:1.0.2'
+
     api deps.retrofit.runtime
     api deps.retrofit.adapter_rxjava2
     api deps.retrofit.converter_gson
@@ -48,12 +49,18 @@ dependencies {
 
     api deps.arouter.api
 
-    api deps.lifecycle.extension
-    api deps.lifecycle.runtime
+    api deps.androidx.extension
+    api deps.androidx.runtime
 //    kapt deps.lifecycle.compiler
-    api deps.lifecycle.common
-    api deps.lifecycle.reactivestreams
-    testApi deps.lifecycle.core_test
+    api deps.androidx.common
+    api deps.androidx.reactivestreams
+    testApi deps.androidx.core_test
+
+    api deps.androidx.appcompat
+    api deps.androidx.recyclerview
+    api deps.androidx.paging_common
+    api deps.androidx.paging_runtime
+    api deps.androidx.paging_rxjava2
 
     testImplementation deps.test.junit
     androidTestImplementation 'androidx.test:runner:1.1.0'
