@@ -4,13 +4,11 @@ class PagingState {
 
     companion object {
 
-        val REFRESH = 0
+        val INIT_ERROR=0
 
-        val LOADING = 1
+        val AT_BOTTOM=1
 
-        val LOADED = 2
+        val AT_TOP=2
 
-        val ERROR = 3
     }
-
 }

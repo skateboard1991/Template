@@ -1,51 +1,38 @@
 package com.skateboard.core.paging
 
 import androidx.lifecycle.MutableLiveData
-import androidx.paging.ItemKeyedDataSource
+import androidx.paging.PageKeyedDataSource
+import com.skateboard.core.paging.PagingDataState
 
-abstract class BaseDataSource<Key, Value, Error> : ItemKeyedDataSource<Key, Value>() {
+abstract class BaseDataSource<Key, Value>(val dataState: MutableLiveData<Int>) : PageKeyedDataSource<Key, Value>() {
 
-    val state = MutableLiveData<Int>()
+    var retry: (() -> Any?)? = null
 
-    private var startIndex = 0
+    override fun loadInitial(params: LoadInitialParams<Key>, callback: LoadInitialCallback<Key, Value>) {
 
-
-    override fun loadInitial(params: LoadInitialParams<Key>, callback: LoadInitialCallback<Value>) {
-
-        state.postValue(PagingState.LOADING)
-        fetchData(startIndex,::onSuccess,::onFailed,callback)
+        dataState.postValue(PagingDataState.LOADING)
+        onLoadInitial(params, StatusLoadInitialCallback(dataState, callback))
     }
 
-    override fun loadAfter(params: LoadParams<Key>, callback: LoadCallback<Value>) {
-        if (shouldLoadMore()) {
-            state.postValue(PagingState.LOADING)
-            fetchData(startIndex,::onSuccess,::onFailed,callback)
+    abstract fun onLoadInitial(params: LoadInitialParams<Key>, callback: StatusLoadInitialCallback<Key, Value>)
+
+    override fun loadAfter(params: LoadParams<Key>, callback: LoadCallback<Key, Value>) {
+
+        dataState.postValue(PagingDataState.LOADING)
+        val statusLoadCallback = StatusLoadCallback(dataState, callback)
+        onLoadAfter(params, statusLoadCallback)
+        retry = {
+            onLoadAfter(params, statusLoadCallback)
         }
     }
 
-    override fun loadBefore(params: LoadParams<Key>, callback: LoadCallback<Value>) {
+    abstract fun onLoadAfter(params: LoadParams<Key>, callback: StatusLoadCallback<Key, Value>)
 
+    override fun loadBefore(params: LoadParams<Key>, callback: LoadCallback<Key, Value>) {
+        dataState.postValue(PagingDataState.LOADING)
+        onLoadBefore(params, StatusLoadCallback(dataState, callback))
     }
 
-    open fun shouldLoadMore() = true
-
-    abstract fun fetchData(
-            startIndex: Int, onSuccess:
-            (
-                    List<Value>,
-                    LoadCallback<Value>
-            ) -> Unit, onFailed: (Error) -> Unit, callback: LoadCallback<Value>
-    )
-
-    private fun onSuccess(dataList: List<Value>, callback: LoadCallback<Value>) {
-        startIndex+=dataList.size
-        callback.onResult(dataList)
-        state.postValue(PagingState.LOADED)
-    }
-
-    private fun onFailed(error: Error) {
-
-        state.postValue(PagingState.ERROR)
-    }
+    abstract fun onLoadBefore(params: LoadParams<Key>, callback: StatusLoadCallback<Key, Value>)
 
 }
