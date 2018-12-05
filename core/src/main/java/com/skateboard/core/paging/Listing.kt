@@ -9,16 +9,16 @@ import androidx.paging.PagedList
 class Listing<T>(
     val pagedList: LiveData<PagedList<T>>,
     val pagingState: MutableLiveData<Int>,
-    val pagingDataState: MutableLiveData<Int>,
-    retry: (() -> Unit)? = null,
-    refresh: (() -> Unit)? = null
+    val loadingDataState: MutableLiveData<Int>,
+    val retry: (() -> Any?)? = null,
+    val refresh: (() -> Unit)? = null
 ) {
 
     var onStateListener: OnStateListener<T>? = null
 
     interface OnStateListener<T> {
 
-        fun onPagedListLoaded(pagedList:PagedList<T>)
+        fun onPagedListLoaded(pagedList: PagedList<T>)
 
         fun onDataLoading()
 
@@ -36,7 +36,7 @@ class Listing<T>(
 
     fun observe(owner: LifecycleOwner) {
         observePagedList(owner)
-        observePagingDataState(owner)
+        observeLoadingDataState(owner)
         observePagingState(owner)
     }
 
@@ -64,17 +64,23 @@ class Listing<T>(
         })
     }
 
-    private fun observePagingDataState(owner: LifecycleOwner) {
+    private fun observeLoadingDataState(owner: LifecycleOwner) {
 
-        pagingDataState.observe(owner, Observer {
+        loadingDataState.observe(owner, Observer {
 
             when (it) {
 
-                PagingDataState.LOADING -> onStateListener?.onDataLoading()
+                LoadingDataState.LOADING -> {
+                    onStateListener?.onDataLoading()
+                }
 
-                PagingDataState.LOADED -> onStateListener?.onDataLoaded()
+                LoadingDataState.LOADED -> {
+                    onStateListener?.onDataLoaded()
+                }
 
-                PagingDataState.ERROR -> onStateListener?.onDataError()
+                LoadingDataState.ERROR -> {
+                    onStateListener?.onDataError()
+                }
             }
 
         })
@@ -85,7 +91,7 @@ class Listing<T>(
 open class SimpleOnStateListener<T> : Listing.OnStateListener<T> {
 
     override
-    fun onPagedListLoaded(pagedList:PagedList<T>) {
+    fun onPagedListLoaded(pagedList: PagedList<T>) {
 
     }
 

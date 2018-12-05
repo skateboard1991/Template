@@ -5,16 +5,25 @@ import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 
-abstract class BaseDataSourceFactory<Key, Value>(val pagingDataState: MutableLiveData<Int>) :
+abstract class BaseDataSourceFactory<Key, Value>(val loadingDataState: MutableLiveData<Int>) :
     DataSource.Factory<Key, Value>() {
 
-    val source = MutableLiveData<BaseDataSource<Key, Value>>()
+    private var source: BaseDataSource<Key, Value>? = null
 
     override fun create(): BaseDataSource<Key, Value> {
 
         val dataSource = generateDataSource()
-        source.postValue(dataSource)
+        source = dataSource
         return dataSource
+    }
+
+    open fun refresh() {
+
+        source?.invalidate()
+    }
+
+    open fun retry() {
+        source?.retry?.invoke()
     }
 
     abstract fun generateDataSource(): BaseDataSource<Key, Value>
@@ -35,8 +44,6 @@ abstract class BaseDataSourceFactory<Key, Value>(val pagingDataState: MutableLiv
             boundaryCallback
         ).build()
 
-        return Listing(pagedList, boundaryCallback.pagingState, pagingDataState, { source.value?.retry }, {
-            source.value?.invalidate()
-        })
+        return Listing(pagedList, boundaryCallback.pagingState, loadingDataState, this::retry,this::refresh)
     }
 }

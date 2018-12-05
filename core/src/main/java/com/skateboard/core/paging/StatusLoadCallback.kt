@@ -8,7 +8,7 @@ class StatusLoadCallback<Key,Value>(val pagingState: MutableLiveData<Int>, val c
     override fun onResult(data: List<Value>, adjacentPageKey: Key?) {
         callback.onResult(data,adjacentPageKey)
         if(data.isEmpty()){
-            pagingState.postValue(PagingDataState.LOADED)
+            pagingState.postValue(LoadingDataState.LOADED)
         }
         else{
 
@@ -17,6 +17,6 @@ class StatusLoadCallback<Key,Value>(val pagingState: MutableLiveData<Int>, val c
 
     fun onError(){
 
-        pagingState.postValue(PagingDataState.ERROR)
+        pagingState.postValue(LoadingDataState.ERROR)
     }
 }

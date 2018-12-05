@@ -80,27 +80,4 @@ object NetWorkUtil
 
     fun <T> create(cla: Class<T>): T = retrofit.create(cla)
 
-//
-//    fun <T> transToLiveData(observable: Observable<Response<T>>): LiveData<Response<T>>
-//    {
-//        val result = MutableLiveData<Response<T>>()
-//        observable.compose(CommonTransformer())
-//                .subscribe(Consumer<Response<T>> {
-//                    if (it.isSuccess())
-//                    {
-//                        result.value = it
-//                    }
-//                    else
-//                    {
-//
-//                    }
-//                }, Consumer<Throwable> {
-//                    val baseModel = Response<T>()
-//                    baseModel.message = it?.message ?: ""
-//                    result.value = baseModel
-//                })
-//        return result
-//    }
-
-
 }
