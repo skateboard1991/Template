@@ -5,7 +5,7 @@ class ModulesConfig
     companion object
     {
         val MODULE_NAMES = arrayOf("com.skateboard.modulea.ModuleAApplication",
-                "com.skateboard.loginmodule.LoginApplication")
+                "com.jd.intelligentfreezer.account.applicaton.AccountApplication")
     }
 
 }

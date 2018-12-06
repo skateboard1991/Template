@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">core</string>
+    <string name="app_name">Template</string>
+    <string name="login">登录</string>
+
 </resources>

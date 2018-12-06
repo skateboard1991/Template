@@ -56,6 +56,7 @@ dependencies {
     api deps.androidx.reactivestreams
     testApi deps.androidx.core_test
 
+    api deps.androidx.constraintlayout
     api deps.androidx.appcompat
     api deps.androidx.recyclerview
     api deps.androidx.paging_common

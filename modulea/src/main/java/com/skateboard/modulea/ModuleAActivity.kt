@@ -33,7 +33,7 @@ class ModuleAActivity : AppCompatActivity(), View.OnClickListener
 
             R.id.getDataButton ->
             {
-                dataTV.text = ServiceLocator.moduleBService?.getModuleBName()?:"empty"
+//                dataTV.text = ServiceLocator.moduleBService?.getModuleBName()?:"empty"
             }
         }
 

@@ -1,4 +1,8 @@
-apply plugin: 'com.android.application'
+if (isRunAlone.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 
 apply plugin: 'kotlin-android'
 
@@ -7,19 +11,33 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion deps.version.compileSdkVersion
+    compileSdkVersion 28
+
     defaultConfig {
-        applicationId "com.skateboard.template"
-        minSdkVersion deps.version.minSdkVersion
-        targetSdkVersion deps.version.targetSdkVersion
-        versionCode deps.version.versionCode
-        versionName deps.version.versionName
+        if (isRunAlone.toBoolean()) {
+            applicationId "com.jd.intelligentfreezer.account"
+        }
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName '1.0'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            if (isRunAlone.toBoolean()) {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
         }
     }
 
@@ -33,17 +51,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    resourcePrefix "account"
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    runtimeOnly project(':modulea')
-    runtimeOnly project(':account')
-    implementation project(':core')
+    implementation project(":core")
     kapt deps.arouter.arouter_compiler
-
-    testImplementation deps.test.junit
-    androidTestImplementation 'androidx.test:runner:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }

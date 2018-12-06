@@ -1,9 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.skateboard.loginmodule">
-
-    <application
-        android:name=".application.AccountApplication">
-
-    </application>
-
-</manifest>

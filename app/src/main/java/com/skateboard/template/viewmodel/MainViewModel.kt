@@ -1,9 +1,11 @@
 package com.skateboard.template.viewmodel
 
-import androidx.lifecycle.*
-import com.skateboard.core.bean.StringModel
 
-class MainViewModel: ViewModel(),LifecycleObserver
+import androidx.lifecycle.LifecycleObserver
+import com.skateboard.core.viewmodel.BaseViewModel
+
+
+class MainViewModel: BaseViewModel(),LifecycleObserver
 {
 
 }

@@ -21,6 +21,10 @@ class ExampleInstrumentedTest
     {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
+        val density = appContext.resources.displayMetrics.density
+        val screenWidth = appContext.resources.displayMetrics.widthPixels
+        val screenHeight = appContext.resources.displayMetrics.heightPixels
+        println("density is $density screenwidth is $screenWidth screenHeight is $screenHeight")
         assertEquals("com.skateboard.template", appContext.packageName)
     }
 }

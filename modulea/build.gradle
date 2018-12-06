@@ -31,6 +31,8 @@ android {
         }
     }
 
+    resourcePrefix "modulea"
+
     sourceSets {
         main {
             if (isRunAlone.toBoolean()) {

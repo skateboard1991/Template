@@ -1,16 +1,21 @@
 package com.skateboard.template.application
 
 import com.alibaba.android.arouter.launcher.ARouter
+import com.skateboard.core.application.AppStatusManager
 import com.skateboard.core.application.BaseApplication
 import com.skateboard.core.application.ModulesConfig
+import com.skateboard.template.BuildConfig
 
 class AppApplication : BaseApplication()
 {
     override fun onCreate()
     {
         super.onCreate()
-        ARouter.openLog()
-        ARouter.openDebug()
+        if (BuildConfig.DEBUG)
+        {
+            ARouter.openLog()
+            ARouter.openDebug()
+        }
         ARouter.init(this)
     }
 
@@ -23,12 +28,10 @@ class AppApplication : BaseApplication()
                 val cla = Class.forName(moduleName)
                 val application = cla.newInstance() as BaseApplication
                 application.initModuleApp()
-            }
-            catch (e: ClassNotFoundException)
+            } catch (e: ClassNotFoundException)
             {
                 e.printStackTrace()
-            }
-            catch (e: Exception)
+            } catch (e: Exception)
             {
                 e.printStackTrace()
             }
