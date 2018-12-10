@@ -1,5 +1,21 @@
 <resources>
-    <string name="app_name">Template</string>
+    <string name="app_name">智能疫苗管理中心</string>
     <string name="login">登录</string>
 
+    <string name="purchase_warehousing">采购入库</string>
+    <string name="purchase_warehousing_en">Purchase warehousing</string>
+    <string name="outstock">出库</string>
+    <string name="outstock_en">stock out</string>
+    <string name="instock">回库</string>
+    <string name="instock_en">stock in</string>
+    <string name="inventory">盘点</string>
+    <string name="inventory_en">Inventory</string>
+    <string name="scrap">报废</string>
+    <string name="scrap_en">Scrap</string>
+    <string name="temperature">温度</string>
+    <string name="temperature_en">temperature</string>
+    <string name="statistics">统计</string>
+    <string name="statistics_en">statistics</string>
+    <string name="vaccine_inoculation">疫苗接种</string>
+    <string name="vaccine_inoculation_en">vaccine_inoculation</string>
 </resources>

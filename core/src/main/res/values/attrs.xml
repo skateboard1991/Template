@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ChooseItemLayout">
+        <attr name="iconWidth" format="dimension" />
+        <attr name="iconHeight" format="dimension"/>
+        <attr name="iconSrc" format="reference" />
+        <attr name="rightUpText" format="string"/>
+        <attr name="rightBottomText" format="string"/>
+    </declare-styleable>
+
+
+</resources>

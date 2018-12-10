@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.skateboard.template">
+    package="com.jd.intelligentfreezer">
 
     <application
-        android:name=".application.AppApplication"
+        android:name="com.jd.intelligentfreezer.application.AppApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/FullScreenTheme">
+        android:theme="@style/AppTheme">
         <activity
-            android:theme="@style/LaunchDispatchTheme"
-            android:name=".ui.activity.LaunchDispatchActivity"
-            android:launchMode="singleTask">
+            android:name="com.jd.intelligentfreezer.ui.activity.LaunchDispatchActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/LaunchDispatchTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +22,15 @@
         </activity>
 
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name="com.jd.intelligentfreezer.ui.activity.SplashActivity"
             android:launchMode="singleTask"
             android:theme="@style/FullScreenTheme" />
+
+        <activity
+            android:name="com.jd.intelligentfreezer.ui.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>

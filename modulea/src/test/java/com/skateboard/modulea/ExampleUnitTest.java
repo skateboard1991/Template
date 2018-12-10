@@ -1,4 +1,4 @@
-package com.skateboard.modulea;
+package com.jd.modulea;
 
 import org.junit.Test;
 

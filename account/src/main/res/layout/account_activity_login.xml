@@ -39,7 +39,7 @@
             android:layout_width="19dp"
             android:layout_height="20dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/user_icon" />
+            android:src="@drawable/icon_user" />
 
         <EditText
             android:id="@+id/userNameET"
@@ -68,7 +68,7 @@
             android:layout_width="19dp"
             android:layout_height="20dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/user_icon" />
+            android:src="@drawable/icon_password" />
 
         <EditText
             android:id="@+id/passwordET"

@@ -1,4 +1,4 @@
-package com.skateboard.modulea;
+package com.jd.modulea;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;

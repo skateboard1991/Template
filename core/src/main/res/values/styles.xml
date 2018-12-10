@@ -12,4 +12,9 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
 </resources>

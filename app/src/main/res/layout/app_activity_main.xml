@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.MainActivity">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.jd.core.ui.widget.ChooseItemLayout
+                android:id="@+id/purchaseItem"
+                android:layout_width="330dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/black"
+                app:iconHeight="49dp"
+                app:iconSrc="@drawable/icon_purchase"
+                app:iconWidth="53dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rightBottomText="@string/purchase_warehousing_en"
+                app:rightUpText="@string/purchase_warehousing" />
+
+            <com.jd.core.ui.widget.ChooseItemLayout
+                android:id="@+id/outStockItem"
+                android:layout_width="157dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/black"
+                app:iconHeight="49dp"
+                app:iconSrc="@drawable/icon_outstock"
+                app:iconWidth="71dp"
+                app:layout_constraintLeft_toLeftOf="@id/purchaseItem"
+                app:layout_constraintTop_toBottomOf="@id/purchaseItem"
+                app:rightBottomText="@string/outstock_en"
+                app:rightUpText="@string/outstock" />
+
+            <com.jd.core.ui.widget.ChooseItemLayout
+                android:id="@+id/inStockItem"
+                android:layout_width="157dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/black"
+                app:iconHeight="49dp"
+                app:iconSrc="@drawable/icon_instock"
+                app:iconWidth="71dp"
+                app:layout_constraintRight_toRightOf="@id/purchaseItem"
+                app:layout_constraintTop_toBottomOf="@id/purchaseItem"
+                app:rightBottomText="@string/instock_en"
+                app:rightUpText="@string/instock" />
+
+
+            <com.jd.core.ui.widget.ChooseItemLayout
+                android:id="@+id/inventoryItem"
+                android:layout_width="157dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/black"
+                app:iconHeight="49dp"
+                app:iconSrc="@drawable/icon_inventory"
+                app:iconWidth="71dp"
+                app:layout_constraintLeft_toLeftOf="@id/outStockItem"
+                app:layout_constraintTop_toBottomOf="@id/outStockItem"
+                app:rightBottomText="@string/inventory_en"
+                app:rightUpText="@string/inventory" />
+
+            <com.jd.core.ui.widget.ChooseItemLayout
+                android:id="@+id/scrapItem"
+                android:layout_width="157dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/black"
+                app:iconHeight="49dp"
+                app:iconSrc="@drawable/icon_scrapped"
+                app:iconWidth="71dp"
+                app:layout_constraintRight_toRightOf="@id/inStockItem"
+                app:layout_constraintTop_toBottomOf="@id/inStockItem"
+                app:rightBottomText="@string/scrap_en"
+                app:rightUpText="@string/scrap" />
+
+            <com.jd.core.ui.widget.ChooseItemLayout
+                android:id="@+id/temperatureItem"
+                android:layout_width="157dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/black"
+                app:iconHeight="49dp"
+                app:iconSrc="@drawable/icon_temperature"
+                app:iconWidth="71dp"
+                app:layout_constraintLeft_toLeftOf="@id/inventoryItem"
+                app:layout_constraintTop_toBottomOf="@id/inventoryItem"
+                app:rightBottomText="@string/temperature_en"
+                app:rightUpText="@string/temperature" />
+
+            <com.jd.core.ui.widget.ChooseItemLayout
+                android:id="@+id/statisticsItem"
+                android:layout_width="157dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/black"
+                app:iconHeight="49dp"
+                app:iconSrc="@drawable/icon_statistics"
+                app:iconWidth="71dp"
+                app:layout_constraintRight_toRightOf="@id/scrapItem"
+                app:layout_constraintTop_toBottomOf="@id/scrapItem"
+                app:rightBottomText="@string/statistics_en"
+                app:rightUpText="@string/statistics" />
+
+            <com.jd.core.ui.widget.ChooseItemLayout
+                android:id="@+id/inoculationItem"
+                android:layout_width="330dp"
+                android:layout_height="94dp"
+                android:layout_marginTop="15dp"
+                android:background="@android:color/black"
+                app:iconHeight="49dp"
+                app:iconSrc="@drawable/icon_vaccination"
+                app:iconWidth="71dp"
+                app:layout_constraintRight_toRightOf="@id/statisticsItem"
+                app:layout_constraintTop_toBottomOf="@id/temperatureItem"
+                app:rightBottomText="@string/vaccine_inoculation_en"
+                app:rightUpText="@string/vaccine_inoculation" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

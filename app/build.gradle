@@ -34,11 +34,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    resourcePrefix "app"
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    runtimeOnly project(':modulea')
     runtimeOnly project(':account')
     implementation project(':core')
     kapt deps.arouter.arouter_compiler

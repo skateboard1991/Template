@@ -1,7 +1,7 @@
 package com.jd.intelligentfreezer.account.service
 
-import com.skateboard.core.bean.User
-import com.skateboard.core.service.account.IAccountService
+import com.jd.core.bean.User
+import com.jd.core.service.account.IAccountService
 
 class AccountService : IAccountService
 {
